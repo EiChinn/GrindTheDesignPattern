@@ -10,7 +10,10 @@ public class Client {
 //        Api api = new Impl();
 //        api.test("Impl");
 
-        Api api = Factory.createApi(1);
+//        Api api = Factory.createApi(1);
+//        api.test("Test simple factory pattern");
+
+        Api api = Factory.createApiUseProperties();
         api.test("Test simple factory pattern");
     }
 }

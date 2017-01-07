@@ -1,5 +1,9 @@
 package com.eichinn.simple_factory;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  * Created by ei_chinn on 2017/1/5.
  */
@@ -24,6 +28,40 @@ public class Factory {
                 api = new Impl();
             break;
         }
+        return api;
+    }
+
+    /**
+     * 根据配置文件的参数来创建接口
+     * @return
+     */
+    public static Api createApiUseProperties() {
+        Properties p = new Properties();
+        InputStream is = null;
+        try {
+            is = Factory.class.getResourceAsStream("FactoryTest.properties");
+            p.load(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Api api = null;
+        try {
+            api = (Api)Class.forName(p.getProperty("ImplClass")).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         return api;
     }
 }
