@@ -5,8 +5,7 @@ package com.eichinn.builder.extension;
  */
 public class Clinet {
     public static void main(String[] args) {
-        ConcreteBuilder builder = new ConcreteBuilder("001", 245L, 789L);
-        InsuranceContract insuranceContract = builder.setCompanyName("ei_chinn").setPersonName("shana").setOtherData("otherData").build();
+        InsuranceContract insuranceContract = new InsuranceContract.Builder("001", 245L, 789L).setPersonName("shana").setOtherData("otherData").build();
         insuranceContract.someOperation();
     }
 }
