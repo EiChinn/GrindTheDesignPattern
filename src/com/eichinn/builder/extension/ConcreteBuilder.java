@@ -20,6 +20,7 @@ public class ConcreteBuilder {
         this.endDate = endDate;
     }
 
+    /********** builder的类setter方法，可对单个数据进行合法性校验，不合法则抛出IllegalStateException **********/
     public ConcreteBuilder setPersonName(String personName) {
         this.personName = personName;
         return this;
@@ -34,6 +35,8 @@ public class ConcreteBuilder {
         this.otherData = otherData;
         return this;
     }
+    /********** builder的类setter方法，可对单个数据进行合法性校验，不合法则抛出IllegalStateException **********/
+
 
     public String getContractId() {
         return contractId;
@@ -59,7 +62,28 @@ public class ConcreteBuilder {
         return otherData;
     }
 
+    /**
+     * build方法创建目标对象。
+     * 创建目标对象之前，可在此对所有数据进行约束规则校验，不符合条件则抛出IllegalStateException
+     * @return
+     */
     public InsuranceContract build() {
+        if (isStringEmpty(contractId)) {
+            throw new IllegalStateException("ContractId can't be empty");
+        }
+
+        if (isStringEmpty(personName) && isStringEmpty(companyName)) {
+            throw new IllegalStateException("PersonName and CompanyName can't all be empty");
+        }
+
+        if (!isStringEmpty(personName) && !isStringEmpty(companyName)) {
+            throw new IllegalStateException("PersonName and CompanyName can't all be not empty");
+
+        }
         return new InsuranceContract(this);
+    }
+
+    private boolean isStringEmpty(String string) {
+        return string == null || string.trim().length() == 0;
     }
 }
