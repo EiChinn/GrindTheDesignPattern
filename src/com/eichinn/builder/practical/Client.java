@@ -34,8 +34,8 @@ public class Client {
         ExportFooterModel efm = new ExportFooterModel();
         efm.setExportUser("ei_chinn");
 
-        //test ExportToText
-        ExportToText exportToText = new ExportToText();
+        //test ExportToTxt
+        ExportToTxt exportToText = new ExportToTxt();
         exportToText.export(ehm, mapData, efm);
 
         System.out.println();

@@ -7,7 +7,7 @@ import java.util.Map;
  * 导出数据到文本文件的对象
  * Created by ei_chinn on 2017/3/11.
  */
-public class ExportToText {
+public class ExportToTxt {
     /**
      * 导出数据到文本文件
      * @param ehm 文件头的内容
