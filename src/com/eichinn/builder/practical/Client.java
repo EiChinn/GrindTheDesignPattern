@@ -34,7 +34,7 @@ public class Client {
         ExportFooterModel efm = new ExportFooterModel();
         efm.setExportUser("ei_chinn");
 
-        //test ExportToTxt
+        /*//test ExportToTxt
         ExportToTxt exportToText = new ExportToTxt();
         exportToText.export(ehm, mapData, efm);
 
@@ -42,6 +42,20 @@ public class Client {
 
         //test ExportToXml
         ExportToXml exportToXml = new ExportToXml();
-        exportToXml.export(ehm, mapData, efm);
+        exportToXml.export(ehm, mapData, efm);*/
+
+        //test TxtBuilder
+        TxtBuilder txtBuilder = new TxtBuilder();
+        Director director = new Director(txtBuilder);
+        director.construct(ehm, mapData, efm);
+        System.out.println("输出到文本文件的内容： ");
+        System.out.println(txtBuilder.getResult().toString());
+
+        //test XmlBuilder
+        XmlBuilder xmlBuilder = new XmlBuilder();
+        director = new Director(xmlBuilder);
+        director.construct(ehm, mapData, efm);
+        System.out.println("输出到xml文件到内容： ");
+        System.out.println(xmlBuilder.getResult().toString());
     }
 }
