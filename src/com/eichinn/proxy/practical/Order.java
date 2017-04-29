@@ -44,4 +44,13 @@ public class Order implements OrderApi {
     public void setOrderUser(String orderUser, String user) {
         this.orderUser = orderUser;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "productName='" + productName + '\'' +
+                ", orderUser='" + orderUser + '\'' +
+                ", orderNum=" + orderNum +
+                '}';
+    }
 }
