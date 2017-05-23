@@ -5,4 +5,5 @@ package com.eichinn.command.practical;
  */
 public interface MainBoardApi {
     void open();
+    void reset();
 }

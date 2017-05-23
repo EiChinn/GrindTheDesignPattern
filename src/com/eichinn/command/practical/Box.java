@@ -13,4 +13,14 @@ public class Box {
     public void openBtnPress() {
         openCommand.execute();
     }
+
+    private Command resetCommad;
+
+    public void setResetCommad(Command resetCommad) {
+        this.resetCommad = resetCommad;
+    }
+
+    public void resetBtnPress() {
+        resetCommad.execute();
+    }
 }

@@ -6,6 +6,11 @@ package com.eichinn.command.practical;
 public class MsiMainBoard implements MainBoardApi {
     @Override
     public void open() {
-        System.out.println("MsiMainBoard");
+        System.out.println("MsiMainBoard open");
+    }
+
+    @Override
+    public void reset() {
+        System.out.println("MsiMainBoard reset");
     }
 }

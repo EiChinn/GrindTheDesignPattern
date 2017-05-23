@@ -6,6 +6,11 @@ package com.eichinn.command.practical;
 public class GigaMainBoard implements MainBoardApi {
     @Override
     public void open() {
-        System.out.println("GigaMainBoard");
+        System.out.println("GigaMainBoard open");
+    }
+
+    @Override
+    public void reset() {
+        System.out.println("GigaMainBoard reset");
     }
 }

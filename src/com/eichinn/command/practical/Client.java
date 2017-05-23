@@ -5,12 +5,17 @@ package com.eichinn.command.practical;
  */
 public class Client {
     public static void main(String[] args) {
-        MainBoardApi mainBoard = new MsiMainBoard();
-//        MainBoardApi mainBoard = new GigaMainBoard();
-        Command openCommand = new OpenCommand(mainBoard);
+        MainBoardApi msiMainBoard = new MsiMainBoard();
+        Command openCommand = new OpenCommand(msiMainBoard);
         Box box = new Box();
         box.setOpenCommand(openCommand);
         box.openBtnPress();
+
+        MainBoardApi gigaMainBoard = new GigaMainBoard();
+        Command resetCommand = new ResetCommand(gigaMainBoard);
+        box.setResetCommad(resetCommand);
+        box.resetBtnPress();
+
     }
 
 }
