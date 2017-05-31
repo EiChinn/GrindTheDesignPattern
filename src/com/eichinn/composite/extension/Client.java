@@ -23,12 +23,14 @@ public class Client {
         c2.addChild(leaf3);
         c2.addChild(leaf4);
 
+        c2.addChild(root);
+
         root.printStruct(" ");
 
-        System.out.println("----------------------------");
-
-        root.removeChild(c1);
-        root.printStruct(" ");
+//        System.out.println("----------------------------");
+//
+//        root.removeChild(c1);
+//        root.printStruct(" ");
 
     }
 }

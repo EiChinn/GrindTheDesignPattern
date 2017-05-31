@@ -20,6 +20,21 @@ public class Composite extends Component {
         if (childComponents == null) {
             childComponents = new ArrayList<>();
         }
+
+        if (getComponentPath() == null || getComponentPath().trim().length() == 0) {//root
+            setComponentPath(getName());
+        }
+
+        if (getComponentPath().startsWith(child.getName() + ".")) {
+            throw new IllegalStateException("Component " + child.getName() + " has added");
+        } else {
+            if (getComponentPath().indexOf(child.getName() + ".") < 0) {
+                String componentPath = getComponentPath() + "." + child.getName();
+                child.setComponentPath(componentPath);
+            } else {
+                throw new IllegalStateException("Component " + child.getName() + " has added");
+            }
+        }
         child.setParent(this);
 
         childComponents.add(child);
@@ -50,6 +65,11 @@ public class Composite extends Component {
             return childComponents.get(index);
         }
         return null;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override

@@ -11,6 +11,11 @@ public class Leaf extends Component {
     }
 
     @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
     void printStruct(String preStr) {
         System.out.println(preStr + "-" + name);
     }

@@ -8,6 +8,18 @@ import java.util.List;
 public abstract class Component {
     private Component parent;
 
+    private String componentPath = "";
+
+    public String getComponentPath() {
+        return componentPath;
+    }
+
+    public void setComponentPath(String componentPath) {
+        this.componentPath = componentPath;
+    }
+
+    public abstract String getName();
+
     public Component getParent() {
         return parent;
     }
