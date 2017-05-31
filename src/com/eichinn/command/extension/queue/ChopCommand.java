@@ -1,9 +1,11 @@
 package com.eichinn.command.extension.queue;
 
+import java.io.Serializable;
+
 /**
  * Created by ei_chinn on 2017/5/31.
  */
-public class ChopCommand implements Command {
+public class ChopCommand implements Command, Serializable{
     private CookApi cook;
     private int tableNum;
 
