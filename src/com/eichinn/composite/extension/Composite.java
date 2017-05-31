@@ -21,7 +21,7 @@ public class Composite extends Component {
             childComponents = new ArrayList<>();
         }
 
-        if (getComponentPath() == null || getComponentPath().trim().length() == 0) {//root
+        /*if (getComponentPath() == null || getComponentPath().trim().length() == 0) {//root
             setComponentPath(getName());
         }
 
@@ -34,6 +34,13 @@ public class Composite extends Component {
             } else {
                 throw new IllegalStateException("Component " + child.getName() + " has added");
             }
+        }*/
+        Component parent = getParent();
+        while (parent != null){
+            if (child == getParent()) {
+                throw new IllegalStateException("Component " + child.getName() + " has added");
+            }
+            parent = parent.getParent();
         }
         child.setParent(this);
 
