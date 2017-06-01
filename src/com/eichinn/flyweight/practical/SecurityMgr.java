@@ -2,8 +2,6 @@ package com.eichinn.flyweight.practical;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by ei_chinn on 2017/6/1.
@@ -19,16 +17,17 @@ public class SecurityMgr {
         return securityMgr;
     }
 
-    private Map<String, Collection<Flyweight>> map = new HashMap<>();
+//    private Map<String, Collection<Flyweight>> map = new HashMap<>();
 
-    public void login(String user) {
+    /*public void login(String user) {
         Collection<Flyweight> col = queryByUser(user);
         map.put(user, col);
-    }
+    }*/
 
     public boolean hasPermit(String user, String securityEntity, String permit) {
-        Collection<Flyweight> col = map.get(user);
-        System.out.println("现在测试" + securityEntity + "的" + permit + "权限， map.size = " + map.size());
+//        Collection<Flyweight> col = map.get(user);
+        Collection<Flyweight> col = queryByUser(user);
+//        System.out.println("现在测试" + securityEntity + "的" + permit + "权限， map.size = " + map.size());
         if (col == null || col.size() == 0) {
             System.out.println(user + " no permit");
             return false;
