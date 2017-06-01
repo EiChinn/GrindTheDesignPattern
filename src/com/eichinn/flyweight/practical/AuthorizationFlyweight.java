@@ -26,4 +26,9 @@ public class AuthorizationFlyweight implements Flyweight{
     public boolean match(String securityEntity, String permit) {
         return this.securityEntity.equals(securityEntity) && this.permit.equals(permit);
     }
+
+    @Override
+    public void add(Flyweight flyweight) {
+        throw new UnsupportedOperationException("unsupported operation");
+    }
 }

@@ -28,6 +28,7 @@ public class SecurityMgr {
 
     public boolean hasPermit(String user, String securityEntity, String permit) {
         Collection<Flyweight> col = map.get(user);
+        System.out.println("现在测试" + securityEntity + "的" + permit + "权限， map.size = " + map.size());
         if (col == null || col.size() == 0) {
             System.out.println(user + " no permit");
             return false;
@@ -47,7 +48,18 @@ public class SecurityMgr {
         for (String s : TestDB.colDB) {
             String[] ss = s.split(",");
             if (ss[0].equals(user)) {
-                Flyweight fm = FlyweightFactory.getInstance().getFlyweight(ss[1] + "," + ss[2]);
+                Flyweight fm = null;
+                if ("2".equals(ss[3])) {
+                    fm = new UnsharedConcreteFlyweight();
+                    String tempSs[] = TestDB.mapDB.get(ss[1]);
+                    for (String tempS : tempSs) {
+                        Flyweight tempFm = FlyweightFactory.getInstance().getFlyweight(tempS);
+                        fm.add(tempFm);
+                    }
+                } else {
+                    fm = FlyweightFactory.getInstance().getFlyweight(ss[1] + "," + ss[2]);
+
+                }
                 col.add(fm);
             }
         }

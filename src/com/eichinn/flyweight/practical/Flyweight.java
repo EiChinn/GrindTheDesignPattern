@@ -5,4 +5,6 @@ package com.eichinn.flyweight.practical;
  */
 public interface Flyweight {
     boolean match(String securityEntity, String permit);
+
+    void add(Flyweight flyweight);
 }
