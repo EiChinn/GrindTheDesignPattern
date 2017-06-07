@@ -9,16 +9,16 @@ class Composite(name: String) : Component(name) {
 
     override fun accept(visitor: Visitor) {
         visitor.visitComposite(this)
-        for (child in childComponents) {
-            child.accept(visitor)
-        }
+//        for (child in childComponents) {
+//            child.accept(visitor)
+//        }
     }
 
     override fun someOperation() {
         println("some operation in composite")
     }
 
-    private val childComponents = ArrayList<Component>()
+    val childComponents = ArrayList<Component>()
 
     override fun addChild(child: Component) {
         childComponents.add(child)

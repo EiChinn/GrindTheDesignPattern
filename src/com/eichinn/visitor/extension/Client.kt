@@ -23,7 +23,8 @@ fun main(args: Array<String>) {
     val os = ObjectStructure()
     os.root = root
 
-    val visitor = PrintNameVisitor()
+//    val visitor = PrintNameVisitor()
+    val visitor = PrintStructVisitor()
     os.handleRequest(visitor)
 
 
